@@ -1,6 +1,6 @@
 package com.javacasestudy2.House;
 
-public class Rooms {
+public abstract class Rooms {
     String roomName;
     int noOfDevices;
 
@@ -29,4 +29,10 @@ public class Rooms {
     public void setNoOfDevices(int noOfDevices) {
         this.noOfDevices = noOfDevices;
     }
+
+    public abstract boolean addDevice();
+
+    public abstract boolean removeDevice();
+
+    public abstract void display();
 }

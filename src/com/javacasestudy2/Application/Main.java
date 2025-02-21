@@ -1,10 +1,13 @@
 package com.javacasestudy2.Application;
 
+import com.javacasestudy2.House.House;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        House house = new House("ABC");
         int choice = 1;
 
         do{
@@ -24,7 +27,8 @@ public class Main {
                 case 1:
                     int roomChoice = 1;
                     do {
-                        System.out.println("Select Room in which you want to Install Device");
+                        //boolean ch = false;
+                        System.out.println("Select Room in which you want to Install Devices");
                         System.out.println("+-------------------------------+");
                         System.out.println("1. Bedroom           press-1");
                         System.out.println("2. Kitchen           press-2");
@@ -39,19 +43,19 @@ public class Main {
 
                         switch (roomChoice) {
                             case 1:
-                                System.out.println("bedroom");
+                                house.addDevice("Bedroom");
                                 break;
                             case 2:
-                                System.out.println("kitchen");
+                                house.addDevice("Kitchen");
                                 break;
                             case 3:
-                                System.out.println("Washroom");
+                                house.addDevice("Wash room");
                                 break;
                             case 4:
-                                System.out.println("Living room");
+                                house.addDevice("Living room");
                                 break;
                             case 5:
-                                System.out.println("Store room");
+                                house.addDevice("Store room");
                                 break;
                             case 6:
                                 break;
@@ -62,7 +66,26 @@ public class Main {
                     }while (roomChoice!=6);
                     break;
                 case 2:
-                    System.out.println("2");
+                    do {
+                        System.out.println("Select Room in which you want to Uninstall Devices");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("1. Bedroom           press-1");
+                        System.out.println("2. Kitchen           press-2");
+                        System.out.println("3. Washroom          press-3");
+                        System.out.println("4. Living room       press-4");
+                        System.out.println("5. Store room        press-5");
+                        System.out.println("6. Go to Main menu   press-6");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("Please enter preferred choice");
+
+                        roomChoice = sc.nextInt();
+
+                        switch (roomChoice) {
+                            case 1:
+                                house.removeDevice("Bedroom");
+                                break;
+                        }
+                    }while (roomChoice!=6);
                     break;
                 case 3:
                     System.out.println("3");
