@@ -91,6 +91,8 @@ public class Bedroom extends Rooms {
         return false;
     }
 
+
+
     @Override
     public void checkStatusofDevice() {
         if(bedRoomDevices.isEmpty())
