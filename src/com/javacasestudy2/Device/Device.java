@@ -1,5 +1,7 @@
 package com.javacasestudy2.Device;
 
+import java.util.Scanner;
+
 public class Device {
     int productId;
     String deviceName;
@@ -39,4 +41,14 @@ public class Device {
     }
 
 
+    public boolean getOn() {
+
+        if (isStatus())
+            return false;
+        else {
+            setStatus(true);
+            return true;
+        }
+
+    }
 }

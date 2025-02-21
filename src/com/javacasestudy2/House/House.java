@@ -15,7 +15,7 @@ public class House {
         rooms.add(0, new Bedroom("Bedroom", 1));
         rooms.add(1, new Kitchen("Kitchen", 0));
         rooms.add(2, new Livingroom("Living room", 0));
-        rooms.add(3, new Washroom("Wash room", 0));
+        rooms.add(3, new Washroom("Washroom", 0));
         rooms.add(4, new Storeroom("Store room", 0));
     }
 
@@ -81,6 +81,17 @@ public class House {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
                 rooms.get(i).checkStatusofDevice();
+            }
+        }
+    }
+
+    public void deviceOn(String RoomName)
+    {
+        boolean status = false;
+        for(int i=0; i < rooms.size();i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                rooms.get(i).deviceOn();
             }
         }
     }

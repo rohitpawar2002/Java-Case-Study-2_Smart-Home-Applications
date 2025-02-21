@@ -79,7 +79,7 @@ public class Bedroom extends Rooms {
             System.out.println("Enter the Devise you would like to Uninstall");
             System.out.println("+------------------------------------------+");
             for (int i = 0; i < bedRoomDevices.size(); i++) {
-                System.out.println(bedRoomDevices.get(i).getDeviceName() + "press-" + (i + 1));
+                System.out.println(bedRoomDevices.get(i).getDeviceName() + "      press-" + (i + 1));
             }
             System.out.println("+------------------------------------------+");
             System.out.println("Enter your preferred choice");
@@ -90,8 +90,6 @@ public class Bedroom extends Rooms {
         }
         return false;
     }
-
-
 
     @Override
     public void checkStatusofDevice() {
@@ -123,6 +121,27 @@ public class Bedroom extends Rooms {
             }
             else
                 System.out.println("Enter correct choice");
+        }
+    }
+
+    public void deviceOn()
+    {
+        if(bedRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter which device you want to control");
+            System.out.println("+------------------------------------------------+");
+            for (int i = 0; i < bedRoomDevices.size(); i++) {
+                System.out.println(bedRoomDevices.get(i).getDeviceName() + "press-" + (i + 1));
+            }
+            System.out.println("+-------------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
+
+            if(bedRoomDevices.get(choice-1).getOn())
+                System.out.println("Device on successfully");
+            else
+                System.out.println("Your device is already on you can off it but you cannot on it again");
         }
     }
 }

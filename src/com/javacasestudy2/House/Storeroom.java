@@ -49,10 +49,10 @@ public class Storeroom extends Rooms{
                 System.out.println("You cant add Television to the StoreRoom");
                 return false;
             case 5:
-                System.out.println("You cant add Television to the StoreRoom");
+                System.out.println("You cant add Geyser to the StoreRoom");
                 return false;
             case 6:
-                storeroomDevices.add(new ExhaustFan(rand.nextInt(1000),"Exhaustfan",false));
+                storeroomDevices.add(new ExhaustFan(rand.nextInt(1000),"Exhaust Fan",false));
                 return true;
             default:
                 return false;
@@ -61,30 +61,41 @@ public class Storeroom extends Rooms{
 
 
     public void display() {
-        for (int i=0;i < storeroomDevices.size();i++)
-        {
-            System.out.println(storeroomDevices.get(i));
+        System.out.println("Number of devices available in Store room");
+        System.out.println("+--------------------------------------------+");
+        for (int i = 0; i < storeroomDevices.size(); i++) {
+            System.out.println("["+(i+1) + ". Device ID - " + storeroomDevices.get(i).getProductId() + ", Device Name - "+storeroomDevices.get(i).getDeviceName()+"]");
         }
+        System.out.println("+--------------------------------------------+");
     }
 
     @Override
     public boolean removeDevice() {
-        System.out.println("Enter the Devise you would like to Uninstall");
-        System.out.println("+------------------------------------------+");
-        for (int i=0;i < storeroomDevices.size();i++)
-        {
-            System.out.println(storeroomDevices.get(i).getDeviceName() + "press-"+i+1);
-        }
-        System.out.println("+------------------------------------------+");
-        System.out.println("Enter your preferred choice");
-        int choice = sc.nextInt();
+        if(storeroomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter the Devise you would like to Uninstall");
+            System.out.println("+------------------------------------------+");
+            for (int i = 0; i < storeroomDevices.size(); i++) {
+                System.out.println(storeroomDevices.get(i).getDeviceName() + "      press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
 
-        storeroomDevices.remove(choice - 1);
-        return true;
+            storeroomDevices.remove(choice - 1);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void checkStatusofDevice() {
+
+    }
+
+    @Override
+    public void deviceOn() {
 
     }
 }

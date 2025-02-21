@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Washroom extends Rooms{
+public class Washroom extends Rooms {
     Scanner sc = new Scanner(System.in);
     ArrayList<Device> washRoomDevices = new ArrayList<Device>();
 
@@ -20,7 +20,7 @@ public class Washroom extends Rooms{
         super(roomName, noOfDevices);
     }
 
-    public boolean addDevice(){
+    public boolean addDevice() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Devise you would like to install");
         System.out.println("+----------------------------------------------+");
@@ -35,7 +35,7 @@ public class Washroom extends Rooms{
         int choice = sc.nextInt();
         Random rand = new Random();
 
-        switch (choice){
+        switch (choice) {
             case 1:
                 System.out.println("You cant add AirConditioner to the Washroom");
                 return false;
@@ -43,16 +43,16 @@ public class Washroom extends Rooms{
                 System.out.println("You cant add Fan to the Washroom");
                 return false;
             case 3:
-                washRoomDevices.add(new Light(rand.nextInt(1000),"Light",false));
+                washRoomDevices.add(new Light(rand.nextInt(1000), "Light", false));
                 return true;
             case 4:
                 System.out.println("You cant add Television to the Washroom");
                 return false;
             case 5:
-                washRoomDevices.add(new Geyser(rand.nextInt(1000),"Geyser",false));
+                washRoomDevices.add(new Geyser(rand.nextInt(1000), "Geyser", false));
                 return true;
             case 6:
-                washRoomDevices.add(new ExhaustFan(rand.nextInt(1000),"ExhaustFan",false));
+                washRoomDevices.add(new ExhaustFan(rand.nextInt(1000), "ExhaustFan", false));
                 return true;
             default:
                 return false;
@@ -60,30 +60,41 @@ public class Washroom extends Rooms{
     }
 
     public void display() {
-        for (int i=0;i < washRoomDevices.size();i++)
-        {
-            System.out.println(washRoomDevices.get(i));
+        System.out.println("Number of devices available in Washroom");
+        System.out.println("+--------------------------------------------+");
+        for (int i = 0; i < washRoomDevices.size(); i++) {
+            System.out.println("[" + (i + 1) + ". Device ID - " + washRoomDevices.get(i).getProductId() + ", Device Name - " + washRoomDevices.get(i).getDeviceName() + "]");
         }
+        System.out.println("+--------------------------------------------+");
     }
 
     @Override
     public boolean removeDevice() {
-        System.out.println("Enter the Devise you would like to Uninstall");
-        System.out.println("+------------------------------------------+");
-        for (int i=0;i < washRoomDevices.size();i++)
-        {
-            System.out.println(washRoomDevices.get(i).getDeviceName() + "press-"+i+1);
-        }
-        System.out.println("+------------------------------------------+");
-        System.out.println("Enter your preferred choice");
-        int choice = sc.nextInt();
+        if (washRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter the Devise you would like to Uninstall");
+            System.out.println("+------------------------------------------+");
+            for (int i = 0; i < washRoomDevices.size(); i++) {
+                System.out.println(washRoomDevices.get(i).getDeviceName() + "      press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
 
-        washRoomDevices.remove(choice - 1);
-        return true;
+            washRoomDevices.remove(choice - 1);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void checkStatusofDevice() {
+
+    }
+
+    @Override
+    public void deviceOn() {
 
     }
 }

@@ -18,7 +18,8 @@ public class Main {
             System.out.println("2. Uninstall Device from the Room          press-2");
             System.out.println("3. Show number of Devices in the Room      press-3");
             System.out.println("4. Check status of Device in the Room      press-4");
-            System.out.println("5. Exit application                        press-5");
+            System.out.println("5. Device control                          press-5");
+            System.out.println("6. Exit application                        press-6");
             System.out.println("+-----------------------------------------------------+");
             System.out.println("Please enter preferred choice");
             choice = sc.nextInt();
@@ -49,7 +50,7 @@ public class Main {
                                 house.addDevice("Kitchen");
                                 break;
                             case 3:
-                                house.addDevice("Wash room");
+                                house.addDevice("Washroom");
                                 break;
                             case 4:
                                 house.addDevice("Living room");
@@ -84,6 +85,21 @@ public class Main {
                             case 1:
                                 house.removeDevice("Bedroom");
                                 break;
+                            case 2:
+                                house.removeDevice("Kitchen");
+                                break;
+                            case 3:
+                                house.removeDevice("Washroom");
+                                break;
+                            case 4:
+                                house.removeDevice("Living room");
+                                break;
+                            case 5:
+                                house.removeDevice("Store room");
+                                break;
+                            default:
+                                System.out.println("Invalid choice! Please enter correct choice");
+                                break;
                         }
                     }while (roomChoice!=6);
                     break;
@@ -105,6 +121,21 @@ public class Main {
                         switch (roomChoice) {
                             case 1:
                                 house.display("Bedroom");
+                                break;
+                            case 2:
+                                house.display("Kitchen");
+                                break;
+                            case 3:
+                                house.display("Washroom");
+                                break;
+                            case 4:
+                                house.display("Living room");
+                                break;
+                            case 5:
+                                house.display("Store room");
+                                break;
+                            default:
+                                System.out.println("Invalid choice! Please enter correct choice");
                                 break;
                         }
                     }while (roomChoice!=6);
@@ -132,6 +163,9 @@ public class Main {
                     }while (roomChoice!=6);
                     break;
                 case 5:
+                    house.deviceOn("Bedroom");
+                    break;
+                case 6:
                     System.out.println("Exit successfully, Thank you for using Smart Home Application");
                     break;
                 default:

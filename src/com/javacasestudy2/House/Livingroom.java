@@ -38,10 +38,9 @@ public class Livingroom extends Rooms{
         switch (choice){
             case 1:
                 livingRoomDevices.add(new AirConditioner(rand.nextInt(1000),"AirConditioner",false));
-                return false;
+                return true;
             case 2:
                 livingRoomDevices.add(new Fan(rand.nextInt(1000),"Fan",false));
-
                 return true;
             case 3:
                 livingRoomDevices.add(new Light(rand.nextInt(1000),"Light",false));
@@ -61,30 +60,41 @@ public class Livingroom extends Rooms{
     }
 
     public void display() {
-        for (int i=0;i < livingRoomDevices.size();i++)
-        {
-            System.out.println(livingRoomDevices.get(i));
+        System.out.println("Number of devices available in Living room");
+        System.out.println("+--------------------------------------------+");
+        for (int i = 0; i < livingRoomDevices.size(); i++) {
+            System.out.println("["+(i+1) + ". Device ID - " + livingRoomDevices.get(i).getProductId() + ", Device Name - "+livingRoomDevices.get(i).getDeviceName()+"]");
         }
+        System.out.println("+--------------------------------------------+");
     }
 
     @Override
     public boolean removeDevice() {
-        System.out.println("Enter the Devise you would like to Uninstall");
-        System.out.println("+------------------------------------------+");
-        for (int i=0;i < livingRoomDevices.size();i++)
-        {
-            System.out.println(livingRoomDevices.get(i).getDeviceName() + "press-"+i+1);
-        }
-        System.out.println("+------------------------------------------+");
-        System.out.println("Enter your preferred choice");
-        int choice = sc.nextInt();
+        if(livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter the Devise you would like to Uninstall");
+            System.out.println("+------------------------------------------+");
+            for (int i = 0; i < livingRoomDevices.size(); i++) {
+                System.out.println(livingRoomDevices.get(i).getDeviceName() + "     press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
 
-        livingRoomDevices.remove(choice - 1);
-        return true;
+            livingRoomDevices.remove(choice - 1);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public void checkStatusofDevice() {
+
+    }
+
+    @Override
+    public void deviceOn() {
 
     }
 }
