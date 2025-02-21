@@ -27,4 +27,9 @@ public class Livingroom extends Rooms{
     public boolean removeDevice() {
         return false;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }

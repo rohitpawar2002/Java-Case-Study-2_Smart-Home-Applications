@@ -68,4 +68,9 @@ public class Kitchen extends Rooms{
     public boolean removeDevice() {
         return false;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }

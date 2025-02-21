@@ -27,4 +27,9 @@ public class Storeroom extends Rooms{
     public boolean removeDevice() {
         return false;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }
