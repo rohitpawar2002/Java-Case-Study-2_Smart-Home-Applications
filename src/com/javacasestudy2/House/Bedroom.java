@@ -82,12 +82,7 @@ public class Bedroom extends Rooms{
         System.out.println("Enter your preferred choice");
         int choice = sc.nextInt();
 
-        switch (choice) {
-            case 1:
-                bedRoomDevices.remove(0);
-                return true;
-            default:
-                return false;
-        }
+       bedRoomDevices.remove(choice - 1);
+       return true;
     }
 }

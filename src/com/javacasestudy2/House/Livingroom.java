@@ -8,8 +8,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Livingroom extends Rooms{
-
-    ArrayList<LivingroomDevices> livingRoomDevices = new ArrayList<LivingroomDevices>(10);
+    Scanner sc = new Scanner(System.in);
+    ArrayList<Device> livingRoomDevices = new ArrayList<Device>();
 
     //Default Constructor
     public Livingroom() {
@@ -48,7 +48,7 @@ public class Livingroom extends Rooms{
                 return true;
             case 4:
                 livingRoomDevices.add(new Television(rand.nextInt(1000),"Television",false));
-                return false;
+                return true;
             case 5:
                 System.out.println("You cant add Geyser to the LivingRoom");
                 return false;
@@ -60,10 +60,26 @@ public class Livingroom extends Rooms{
         }
     }
 
-    public void display() {}
+    public void display() {
+        for (int i=0;i < livingRoomDevices.size();i++)
+        {
+            System.out.println(livingRoomDevices.get(i));
+        }
+    }
 
     @Override
     public boolean removeDevice() {
-        return false;
+        System.out.println("Enter the Devise you would like to Uninstall");
+        System.out.println("+------------------------------------------+");
+        for (int i=0;i < livingRoomDevices.size();i++)
+        {
+            System.out.println(livingRoomDevices.get(i).getDeviceName() + "press-"+i+1);
+        }
+        System.out.println("+------------------------------------------+");
+        System.out.println("Enter your preferred choice");
+        int choice = sc.nextInt();
+
+        livingRoomDevices.remove(choice - 1);
+        return true;
     }
 }
