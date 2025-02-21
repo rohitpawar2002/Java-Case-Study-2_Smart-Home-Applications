@@ -88,10 +88,48 @@ public class Main {
                     }while (roomChoice!=6);
                     break;
                 case 3:
-                    System.out.println("3");
+                    do {
+                        System.out.println("Select Room in which you want to Display Devices");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("1. Bedroom           press-1");
+                        System.out.println("2. Kitchen           press-2");
+                        System.out.println("3. Washroom          press-3");
+                        System.out.println("4. Living room       press-4");
+                        System.out.println("5. Store room        press-5");
+                        System.out.println("6. Go to Main menu   press-6");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("Please enter preferred choice");
+
+                        roomChoice = sc.nextInt();
+
+                        switch (roomChoice) {
+                            case 1:
+                                house.display("Bedroom");
+                                break;
+                        }
+                    }while (roomChoice!=6);
                     break;
                 case 4:
-                    System.out.println("4");
+                    do {
+                        System.out.println("Select Room in which you want to check Devices status");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("1. Bedroom           press-1");
+                        System.out.println("2. Kitchen           press-2");
+                        System.out.println("3. Washroom          press-3");
+                        System.out.println("4. Living room       press-4");
+                        System.out.println("5. Store room        press-5");
+                        System.out.println("6. Go to Main menu   press-6");
+                        System.out.println("+-------------------------------+");
+                        System.out.println("Please enter preferred choice");
+
+                        roomChoice = sc.nextInt();
+
+                        switch (roomChoice) {
+                            case 1:
+                                house.checkStatusofDevice("Bedroom");
+                                break;
+                        }
+                    }while (roomChoice!=6);
                     break;
                 case 5:
                     System.out.println("Exit successfully, Thank you for using Smart Home Application");

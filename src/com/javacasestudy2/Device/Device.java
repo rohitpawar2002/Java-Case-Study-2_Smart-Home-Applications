@@ -37,4 +37,6 @@ public class Device {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+
 }

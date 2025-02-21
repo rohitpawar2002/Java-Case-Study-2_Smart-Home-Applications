@@ -82,4 +82,9 @@ public class Livingroom extends Rooms{
         livingRoomDevices.remove(choice - 1);
         return true;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }

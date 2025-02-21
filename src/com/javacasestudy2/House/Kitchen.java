@@ -85,4 +85,9 @@ public class Kitchen extends Rooms{
         kitchenDevices.remove(choice - 1);
         return true;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }

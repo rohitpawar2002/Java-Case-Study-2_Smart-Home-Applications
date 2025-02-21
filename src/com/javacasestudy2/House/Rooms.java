@@ -35,4 +35,6 @@ public abstract class Rooms {
     public abstract boolean removeDevice();
 
     public abstract void display();
+
+    public abstract void checkStatusofDevice();
 }

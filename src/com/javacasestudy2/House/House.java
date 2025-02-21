@@ -73,4 +73,15 @@ public class House {
         if (!status)
             System.out.println("Room not found");
     }
+
+    public void checkStatusofDevice(String RoomName)
+    {
+        boolean status = false;
+        for(int i=0; i < rooms.size();i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                rooms.get(i).checkStatusofDevice();
+            }
+        }
+    }
 }

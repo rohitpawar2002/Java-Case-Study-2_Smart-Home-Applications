@@ -82,4 +82,9 @@ public class Storeroom extends Rooms{
         storeroomDevices.remove(choice - 1);
         return true;
     }
+
+    @Override
+    public void checkStatusofDevice() {
+
+    }
 }
