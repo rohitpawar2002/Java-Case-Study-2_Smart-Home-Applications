@@ -120,29 +120,30 @@ public class Bedroom extends Rooms {
                 }
             }
             else
-                System.out.println("Enter correct choice");
+                System.out.println("Invalid choice , Please enter correct choice");
         }
     }
 
-    public void deviceOn()
+    public boolean deviceOn()
     {
         if(bedRoomDevices.isEmpty())
             System.out.println("There is no device present in the room");
         else {
             System.out.println("Enter which device you want to control");
-            System.out.println("+------------------------------------------------+");
+            System.out.println("+-----------------------------------------------------------+");
             for (int i = 0; i < bedRoomDevices.size(); i++) {
-                System.out.println(bedRoomDevices.get(i).getDeviceName() + "press-" + (i + 1));
+                System.out.println("Device Name - "+bedRoomDevices.get(i).getDeviceName()+"      [Status - "+ (bedRoomDevices.get(i).isStatus() ? "On" : "Off")+"]" + "      press-" + (i + 1));
             }
-            System.out.println("+-------------------------------------------------+");
+            System.out.println("+------------------------------------------------------------+");
             System.out.println("Enter your preferred choice");
             int choice = sc.nextInt();
 
             if(bedRoomDevices.get(choice-1).getOn())
-                System.out.println("Device on successfully");
+                return true;
             else
-                System.out.println("Your device is already on you can off it but you cannot on it again");
+                return false;
         }
+        return false;
     }
 }
 

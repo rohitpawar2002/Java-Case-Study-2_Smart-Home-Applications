@@ -90,11 +90,57 @@ public class Livingroom extends Rooms{
 
     @Override
     public void checkStatusofDevice() {
+        if(livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("+-----------------------------------------+");
+            System.out.println("1. Check single device status    press-1");
+            System.out.println("2. Check all device status       press-2");
+            System.out.println("+-----------------------------------------+");
+            System.out.println("Enter your choice");
+            int option = sc.nextInt();
 
+            if (option == 1) {
+                System.out.println("Enter the Devise you would like to check status of it");
+                System.out.println("+------------------------------------------+");
+                for (int i = 0; i < livingRoomDevices.size(); i++) {
+                    System.out.println(livingRoomDevices.get(i).getDeviceName() + "      press-" + (i + 1));
+                }
+                System.out.println("+------------------------------------------+");
+                System.out.println("Enter your preferred choice");
+                int choice = sc.nextInt();
+
+                System.out.println("[Device Name- " + livingRoomDevices.get(choice - 1).getDeviceName() + "       " + "Status - " + (livingRoomDevices.get(choice - 1).isStatus() ? "On" : "Off") + "]");
+            } else if (option == 2) {
+                for (int i = 0; i < livingRoomDevices.size(); i++) {
+                    System.out.println("["+(i+1)+". Device Name- " + livingRoomDevices.get(i).getDeviceName() + "       " + "Status - " + (livingRoomDevices.get(i).isStatus() ? "On" : "Off") + "]");
+                }
+            }
+            else
+                System.out.println("Invalid choice , Please enter correct choice");
+        }
     }
 
     @Override
-    public void deviceOn() {
+    public boolean deviceOn()
+    {
+        if(livingRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter which device you want to control");
+            System.out.println("+-----------------------------------------------------------+");
+            for (int i = 0; i < livingRoomDevices.size(); i++) {
+                System.out.println("Device Name - "+livingRoomDevices.get(i).getDeviceName()+"      [Status - "+ (livingRoomDevices.get(i).isStatus() ? "On" : "Off")+"]" + "      press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
 
+            if(livingRoomDevices.get(choice-1).getOn())
+                return true;
+            else
+                return false;
+        }
+        return false;
     }
 }
