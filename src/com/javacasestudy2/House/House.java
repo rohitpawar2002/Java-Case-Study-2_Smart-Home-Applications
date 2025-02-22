@@ -85,14 +85,18 @@ public class House {
         }
     }
 
-    public void deviceOn(String RoomName)
+    public boolean deviceOn(String RoomName)
     {
         boolean status = false;
         for(int i=0; i < rooms.size();i++) {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
-                rooms.get(i).deviceOn();
+                if(rooms.get(i).deviceOn())
+                    return true;
+                else
+                    return false;
             }
         }
+        return false;
     }
 }

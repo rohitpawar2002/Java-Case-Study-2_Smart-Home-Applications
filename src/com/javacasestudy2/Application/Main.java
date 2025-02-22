@@ -163,7 +163,11 @@ public class Main {
                     }while (roomChoice!=6);
                     break;
                 case 5:
-                    house.deviceOn("Bedroom");
+                    boolean result = house.deviceOn("Bedroom");
+                    if(result)
+                        System.out.println("Device on successfully");
+                    else
+                        System.out.println("Your device is already on you can off it but you cannot on it again");
                     break;
                 case 6:
                     System.out.println("Exit successfully, Thank you for using Smart Home Application");
@@ -172,6 +176,6 @@ public class Main {
                     System.out.println("Invalid choice! Please enter correct choice");
                     break;
             }
-        }while (choice!=5);
+        }while (choice!=6);
     }
 }

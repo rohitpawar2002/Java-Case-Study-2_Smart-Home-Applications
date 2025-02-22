@@ -94,7 +94,7 @@ public class Livingroom extends Rooms{
     }
 
     @Override
-    public void deviceOn() {
-
+    public boolean deviceOn() {
+        return true;
     }
 }
