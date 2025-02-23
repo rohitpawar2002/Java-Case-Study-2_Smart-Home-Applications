@@ -122,7 +122,7 @@ public class Washroom extends Rooms {
     }
 
     @Override
-    public boolean deviceOn()
+    public void deviceOn()
     {
         if(washRoomDevices.isEmpty())
             System.out.println("There is no device present in the room");
@@ -137,10 +137,31 @@ public class Washroom extends Rooms {
             int choice = sc.nextInt();
 
             if(washRoomDevices.get(choice-1).getOn())
-                return true;
+                System.out.println("Device on successfully");
             else
-                return false;
+                System.out.println("Device is already on you cannot on it again you can off it");
         }
-        return false;
+    }
+
+    @Override
+    public void deviceOff()
+    {
+        if(washRoomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter which device you want to control");
+            System.out.println("+-----------------------------------------------------------+");
+            for (int i = 0; i < washRoomDevices.size(); i++) {
+                System.out.println("Device Name - "+washRoomDevices.get(i).getDeviceName()+"      [Status - "+ (washRoomDevices.get(i).isStatus() ? "On" : "Off")+"]" + "      press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
+
+            if(washRoomDevices.get(choice-1).getOff())
+                System.out.println("Device off successfully");
+            else
+                System.out.println("Device is already off you cannot off it again you can on it");
+        }
     }
 }

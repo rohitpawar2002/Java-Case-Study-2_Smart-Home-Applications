@@ -38,5 +38,7 @@ public abstract class Rooms {
 
     public abstract void checkStatusofDevice();
 
-    public abstract boolean deviceOn();
+    public abstract void deviceOn();
+
+    public abstract void deviceOff();
 }

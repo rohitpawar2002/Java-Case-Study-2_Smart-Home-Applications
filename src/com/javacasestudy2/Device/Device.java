@@ -49,6 +49,15 @@ public class Device {
             setStatus(true);
             return true;
         }
+    }
 
+    public boolean getOff() {
+
+        if (isStatus()) {
+            setStatus(false);
+            return true;
+        }
+        else
+            return false;
     }
 }

@@ -123,7 +123,7 @@ public class Storeroom extends Rooms{
     }
 
     @Override
-    public boolean deviceOn()
+    public void deviceOn()
     {
         if(storeroomDevices.isEmpty())
             System.out.println("There is no device present in the room");
@@ -138,10 +138,31 @@ public class Storeroom extends Rooms{
             int choice = sc.nextInt();
 
             if(storeroomDevices.get(choice-1).getOn())
-                return true;
+                System.out.println("Device on successfully");
             else
-                return false;
+                System.out.println("Device is already on you cannot on it again you can off it");
         }
-        return false;
+    }
+
+    @Override
+    public void deviceOff()
+    {
+        if(storeroomDevices.isEmpty())
+            System.out.println("There is no device present in the room");
+        else {
+            System.out.println("Enter which device you want to control");
+            System.out.println("+-----------------------------------------------------------+");
+            for (int i = 0; i < storeroomDevices.size(); i++) {
+                System.out.println("Device Name - "+storeroomDevices.get(i).getDeviceName()+"      [Status - "+ (storeroomDevices.get(i).isStatus() ? "On" : "Off")+"]" + "      press-" + (i + 1));
+            }
+            System.out.println("+------------------------------------------------------------+");
+            System.out.println("Enter your preferred choice");
+            int choice = sc.nextInt();
+
+            if(storeroomDevices.get(choice-1).getOff())
+                System.out.println("Device off successfully");
+            else
+                System.out.println("Device is already off you cannot off it again you can on it");
+        }
     }
 }

@@ -27,16 +27,13 @@ public class House {
         this.houseName = houseName;
     }
 
-    public void addDevice(String RoomName)
-    {
+    public void addDevice(String RoomName) {
         boolean status = false;
-        for(int i=0; i < rooms.size();i++)
-        {
-            if(RoomName.equals(rooms.get(i).roomName))
-            {
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
                 boolean result = rooms.get(i).addDevice();
-                if(result)
+                if (result)
                     System.out.println("Device added successfully");
                 else
                     System.out.println("Device is unable to install, Please try again");
@@ -47,19 +44,17 @@ public class House {
             System.out.println("Room not found");
     }
 
-    public void display(String RoomName)
-    {
-        for (int i=0;i < rooms.size();i++) {
+    public void display(String RoomName) {
+        for (int i = 0; i < rooms.size(); i++) {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 rooms.get(i).display();
             }
         }
     }
 
-    public void removeDevice(String RoomName)
-    {
+    public void removeDevice(String RoomName) {
         boolean status = false;
-        for(int i=0; i < rooms.size();i++) {
+        for (int i = 0; i < rooms.size(); i++) {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
                 boolean result = rooms.get(i).removeDevice();
@@ -74,29 +69,99 @@ public class House {
             System.out.println("Room not found");
     }
 
-    public void checkStatusofDevice(String RoomName)
-    {
+    public void checkStatusofDevice(String RoomName) {
         boolean status = false;
-        for(int i=0; i < rooms.size();i++) {
+        for (int i = 0; i < rooms.size(); i++) {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
                 rooms.get(i).checkStatusofDevice();
             }
         }
+        if (!status)
+            System.out.println("Room not found");
     }
 
-    public boolean deviceOn(String RoomName)
-    {
+    public void deviceOn(String RoomName) {
         boolean status = false;
-        for(int i=0; i < rooms.size();i++) {
+        for (int i = 0; i < rooms.size(); i++) {
             if (RoomName.equals(rooms.get(i).roomName)) {
                 status = true;
-                if(rooms.get(i).deviceOn())
-                    return true;
-                else
-                    return false;
+                rooms.get(i).deviceOn();
             }
         }
-        return false;
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void deviceOff(String RoomName) {
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                rooms.get(i).deviceOff();
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void increaseVolume(String RoomName){
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.increaseVolume();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.increaseVolume();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void decreaseVolume(String RoomName){
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.decreaseVolume();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.decreaseVolume();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
+    }
+
+    public void channelChange(String RoomName){
+        boolean status = false;
+        for (int i = 0; i < rooms.size(); i++) {
+            if (RoomName.equals(rooms.get(i).roomName)) {
+                status = true;
+                if(rooms.get(i) instanceof Bedroom) {
+                    Bedroom b = (Bedroom) rooms.get(i);
+                    b.channelChange();
+                }
+                else
+                {
+                    Livingroom l = (Livingroom) rooms.get(i);
+                    l.channelChange();
+                }
+            }
+        }
+        if (!status)
+            System.out.println("Room not found");
     }
 }
