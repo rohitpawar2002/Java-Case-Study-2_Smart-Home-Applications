@@ -167,10 +167,10 @@ public class Bedroom extends Rooms {
         if (bedRoomDevices.isEmpty())
             System.out.println("There is no device present in the room");
         else {
-            ArrayList<Integer> televisionIndex = new ArrayList<Integer>();
+            ArrayList<Device> televisionIndex = new ArrayList<Device>();
             for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
-                    televisionIndex.add(i);
+                    televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
                     System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
                     j++;
@@ -180,8 +180,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) bedRoomDevices.get(televisionIndex.get(vchoice-1))).increaseVolume())
-                System.out.println("Volume increase successfully, of product "+bedRoomDevices.get(vchoice).getProductId());
+            if (((Television) televisionIndex.get(vchoice-1)).increaseVolume())
+                System.out.println("Volume increase successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
 
         }
     }
@@ -190,10 +190,10 @@ public class Bedroom extends Rooms {
         if (bedRoomDevices.isEmpty())
             System.out.println("There is no device present in the room");
         else {
-            ArrayList<Integer> televisionIndex = new ArrayList<Integer>();
+            ArrayList<Device> televisionIndex = new ArrayList<Device>();
             for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
-                    televisionIndex.add(i);
+                    televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
                     System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
                     j++;
@@ -203,8 +203,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) bedRoomDevices.get(televisionIndex.get(vchoice-1))).increaseVolume())
-                System.out.println("Volume decrease successfully, of product "+bedRoomDevices.get(vchoice).getProductId());
+            if (((Television) televisionIndex.get(vchoice-1)).decreaseVolume())
+                System.out.println("Volume decrease successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
 
@@ -212,10 +212,10 @@ public class Bedroom extends Rooms {
         if (bedRoomDevices.isEmpty())
             System.out.println("There is no device present in the room");
         else {
-            ArrayList<Integer> televisionIndex = new ArrayList<Integer>();
+            ArrayList<Device> televisionIndex = new ArrayList<Device>();
             for (int i = 0,j=1; i < bedRoomDevices.size(); i++) {
                 if (bedRoomDevices.get(i) instanceof Television) {
-                    televisionIndex.add(i);
+                    televisionIndex.add(bedRoomDevices.get(i));
                     System.out.println("+-------------------------------------------------------------------------+");
                     System.out.println("[ " + (j) + ". Device Name -" + bedRoomDevices.get(i).getDeviceName() +"     ProductId - "+ bedRoomDevices.get(i).getProductId()+"      press-" + (j) + "]");
                     j++;
@@ -225,8 +225,8 @@ public class Bedroom extends Rooms {
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
 
-            if (((Television) bedRoomDevices.get(televisionIndex.get(vchoice-1))).increaseVolume())
-                System.out.println("Channel change successfully, of product "+bedRoomDevices.get(vchoice).getProductId());
+            if (((Television) televisionIndex.get(vchoice-1)).channelChange())
+                System.out.println("Channel change successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
 }
