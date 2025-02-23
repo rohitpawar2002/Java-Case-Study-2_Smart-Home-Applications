@@ -226,6 +226,7 @@ public class Livingroom extends Rooms{
                     j++;
                 }
             }
+
             System.out.println("+-------------------------------------------------------------------------+");
             System.out.println("Chose device");
             int vchoice = sc.nextInt();
