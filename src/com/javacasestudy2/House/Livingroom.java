@@ -184,7 +184,7 @@ public class Livingroom extends Rooms{
             int vchoice = sc.nextInt();
 
             if (((Television) televisionIndex.get(vchoice-1)).increaseVolume())
-                System.out.println("Volume increase successfully, of product "+livingRoomDevices.get(vchoice-1).getProductId());
+                System.out.println("Volume increase successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
 
@@ -207,7 +207,7 @@ public class Livingroom extends Rooms{
             int vchoice = sc.nextInt();
 
             if (((Television) televisionIndex.get(vchoice-1)).decreaseVolume())
-                System.out.println("Volume decrease successfully, of product "+livingRoomDevices.get(vchoice-1).getProductId());
+                System.out.println("Volume decrease successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
 
@@ -232,7 +232,7 @@ public class Livingroom extends Rooms{
             int vchoice = sc.nextInt();
 
             if (((Television) televisionIndex.get(vchoice-1)).channelChange())
-                System.out.println("Channel change successfully, of product "+livingRoomDevices.get(vchoice-1).getProductId());
+                System.out.println("Channel change successfully, of product "+televisionIndex.get(vchoice-1).getProductId());
         }
     }
 }
